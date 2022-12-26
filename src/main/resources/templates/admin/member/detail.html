@@ -18,9 +18,7 @@
     <div th:replace="/fragments/layout.html :: fragment-admin-body-menu"></div>
     <h1>관리자 회원 관리 - 회원 상세 정보</h1>
 
-
     <div class="detail" >
-
         <table>
             <tbody>
                 <tr>
@@ -78,7 +76,6 @@
                         </div>
                     </td>
                 </tr>
-
                 <tr>
                     <th>비밀번호 초기화</th>
                     <td>
@@ -91,19 +88,47 @@
                         </div>
                     </td>
                 </tr>
-
-
             </tbody>
         </table>
 
         <div>
             <a href="list.do"> 목록 </a>
-
         </div>
-
-
     </div>
 
-
+    <div class="detail" >
+        <table>
+            <tbody>
+            <tr>
+                <th>
+                    NO
+                </th>
+                <th>
+                    로그인 일자
+                </th>
+                <th>
+                    접속 IP
+                </th>
+                <th>
+                    접속 UserAgent
+                </th>
+            </tr>
+            <tr th:each="loginHistory, i : ${loginHistoryList}">
+                <td>
+                    <p th:text="${i.size - i.index}">
+                </td>
+                <td>
+                    <p th:text="${loginHistory.getLoginDtText()}"></p>
+                </td>
+                <td>
+                    <p th:text="${loginHistory.clientIp}"></p>
+                </td>
+                <td>
+                    <p th:text="${loginHistory.userAgent}"></p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
