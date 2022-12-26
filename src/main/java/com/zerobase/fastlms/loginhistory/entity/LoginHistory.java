@@ -22,7 +22,7 @@ public class LoginHistory {
     Long id;
 
     String userId;
-    LocalDateTime loginDate;
-    String clientId;
+    LocalDateTime loginDt;
+    String clientIp;
     String userAgent;
 }

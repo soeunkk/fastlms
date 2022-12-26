@@ -39,7 +39,7 @@
     </select>
 
     <select id="selectList" resultType="com.zerobase.fastlms.admin.dto.MemberSummaryDto">
-        select member.*, max(login_history.login_date) as last_login_dt
+        select member.*, max(login_history.login_dt) as last_login_dt
         from member left join login_history
         on member.user_id = login_history.user_id
         where 1 = 1

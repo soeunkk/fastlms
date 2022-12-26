@@ -15,9 +15,9 @@ public class LoginHistoryService {
     public void addLog(String userAgent, String clientIp, String userId) {
         LoginHistory loginHistory = LoginHistory.builder()
                 .userId(userId)
-                .loginDate(LocalDateTime.now())
+                .loginDt(LocalDateTime.now())
                 .userAgent(userAgent)
-                .clientId(clientIp)
+                .clientIp(clientIp)
                 .build();
         loginHistoryRepository.save(loginHistory);
     }
