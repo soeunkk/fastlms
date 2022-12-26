@@ -2,6 +2,7 @@ package com.zerobase.fastlms.admin.controller;
 
 
 import com.zerobase.fastlms.admin.dto.MemberDto;
+import com.zerobase.fastlms.admin.dto.MemberSummaryDto;
 import com.zerobase.fastlms.admin.model.MemberParam;
 import com.zerobase.fastlms.admin.model.MemberInput;
 import com.zerobase.fastlms.course.controller.BaseController;
@@ -25,7 +26,7 @@ public class AdminMemberController extends BaseController {
     public String list(Model model, MemberParam parameter) {
         
         parameter.init();
-        List<MemberDto> members = memberService.list(parameter);
+        List<MemberSummaryDto> members = memberService.list(parameter);
         
         long totalCount = 0;
         if (members != null && members.size() > 0) {

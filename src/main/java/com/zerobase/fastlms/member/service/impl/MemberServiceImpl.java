@@ -1,6 +1,7 @@
 package com.zerobase.fastlms.member.service.impl;
 
 import com.zerobase.fastlms.admin.dto.MemberDto;
+import com.zerobase.fastlms.admin.dto.MemberSummaryDto;
 import com.zerobase.fastlms.admin.mapper.MemberMapper;
 import com.zerobase.fastlms.admin.model.MemberParam;
 import com.zerobase.fastlms.components.MailComponents;
@@ -125,14 +126,14 @@ public class MemberServiceImpl implements MemberService {
     }
     
     @Override
-    public List<MemberDto> list(MemberParam parameter) {
+    public List<MemberSummaryDto> list(MemberParam parameter) {
         
         long totalCount = memberMapper.selectListCount(parameter);
         
-        List<MemberDto> list = memberMapper.selectList(parameter);
+        List<MemberSummaryDto> list = memberMapper.selectList(parameter);
         if (!CollectionUtils.isEmpty(list)) {
             int i = 0;
-            for(MemberDto x : list) {
+            for(MemberSummaryDto x : list) {
                 x.setTotalCount(totalCount);
                 x.setSeq(totalCount - parameter.getPageStart() - i);
                 i++;
@@ -140,8 +141,6 @@ public class MemberServiceImpl implements MemberService {
         }
         
         return list;
-        
-        //return memberRepository.findAll();
     }
     
     @Override
