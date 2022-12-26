@@ -35,7 +35,6 @@ public class CourseServiceImpl implements CourseService {
         try {
             return LocalDate.parse(value, formatter);
         } catch (Exception e) {
-        
         }
         
         return null;
