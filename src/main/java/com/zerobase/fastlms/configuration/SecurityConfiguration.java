@@ -19,6 +19,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private final MemberService memberService;
+    private final UserAuthenticationSuccessHandler successHandler;
 
     @Bean
     PasswordEncoder getPasswordEncoder() {
@@ -58,8 +59,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         http.formLogin()
                 .loginPage("/member/login")
+                .successHandler(successHandler)
                 .failureHandler(getFailureHandler())
-                .defaultSuccessUrl("/login-success")
                 .permitAll();
 
         http.logout()
