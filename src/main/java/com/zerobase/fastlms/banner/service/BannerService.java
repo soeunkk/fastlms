@@ -10,6 +10,7 @@ public interface BannerService {
     boolean add(BannerInput parameter);
     boolean set(BannerInput parameter);
     List<BannerDto> list(BannerParam parameter);
+    List<BannerDto> listByVisibleOrderBySortIndex();
     BannerDto getById(long id);
     boolean del(String idList);
 }

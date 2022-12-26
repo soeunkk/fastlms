@@ -79,6 +79,11 @@ public class BannerServiceImpl implements BannerService {
     }
 
     @Override
+    public List<BannerDto> listByVisibleOrderBySortIndex() {
+        return BannerDto.of(bannerRepository.findByVisibleOrderBySortIndex(true));
+    }
+
+    @Override
     public BannerDto getById(long id) {
         return bannerRepository.findById(id).map(BannerDto::of).orElse(null);
     }
